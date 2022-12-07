@@ -82,7 +82,7 @@ DROP TABLE IF EXISTS `genres`;
 CREATE TABLE `genres` (
   `ID` int NOT NULL AUTO_INCREMENT,
   `genreTitle` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`ID`),
+  PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -92,7 +92,7 @@ CREATE TABLE `genres` (
 
 LOCK TABLES `genres` WRITE;
 /*!40000 ALTER TABLE `genres` DISABLE KEYS */;
-INSERT INTO `genres` VALUES (1,'Action',NULL),(2,'Creative',NULL),(3,'Real Time Strategy',NULL),(4,'Stealth',NULL),(5,'Role Playing Game',NULL),(6,'Rogue-like',NULL),(7,'Souls-like',NULL),(8,'Tactical Strategy',NULL),(9,'Rhythm',NULL),(10,'Casual',NULL),(11,'Simulation',NULL);
+INSERT INTO `genres` VALUES (1,'Action'),(2,'Creative'),(3,'Real Time Strategy'),(4,'Stealth'),(5,'Role Playing Game'),(6,'Rogue-like'),(7,'Souls-like'),(8,'Tactical Strategy'),(9,'Rhythm'),(10,'Casual'),(11,'Simulation');
 /*!40000 ALTER TABLE `genres` ENABLE KEYS */;
 UNLOCK TABLES;
 
