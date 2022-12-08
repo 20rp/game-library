@@ -1,8 +1,13 @@
 {
   "name": "gamelibrary",
   "version": "1.0.0",
+<<<<<<< HEAD
   "description": "A Simple Video Game Library",
   "main": "index.js",
+=======
+  "description": "Game Library",
+  "main": "app.js",
+>>>>>>> 1156200af7e44dc38d089e78e81bbe134bdf6455
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,13 +15,21 @@
     "type": "git",
     "url": "git+https://github.com/20rp/game-library.git"
   },
+<<<<<<< HEAD
   "author": "",
+=======
+  "author": "20rp",
+>>>>>>> 1156200af7e44dc38d089e78e81bbe134bdf6455
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/20rp/game-library/issues"
   },
+<<<<<<< HEAD
   "homepage": "https://github.com/20rp/game-library#readme",
   "dependencies": {
     "express": "^4.18.2"
   }
+=======
+  "homepage": "https://github.com/20rp/game-library#readme"
+>>>>>>> 1156200af7e44dc38d089e78e81bbe134bdf6455
 }
