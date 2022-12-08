@@ -1,8 +1,3 @@
--- Create and use database
-
-CREATE DATABASE GameLibrary;
-USE GameLibrary;
-
 -- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: gamelibrary
@@ -24,6 +19,9 @@ USE GameLibrary;
 -- Table structure for table `gamegenres`
 --
 
+DROP TABLE IF EXISTS `gamegenres`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `gamegenres` (
   `ID` int NOT NULL AUTO_INCREMENT,
   `gameID` int NOT NULL,
@@ -33,7 +31,7 @@ CREATE TABLE `gamegenres` (
   KEY `genreID` (`genreID`),
   CONSTRAINT `gamegenres_ibfk_1` FOREIGN KEY (`gameID`) REFERENCES `games` (`ID`),
   CONSTRAINT `gamegenres_ibfk_2` FOREIGN KEY (`genreID`) REFERENCES `genres` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,6 +40,7 @@ CREATE TABLE `gamegenres` (
 
 LOCK TABLES `gamegenres` WRITE;
 /*!40000 ALTER TABLE `gamegenres` DISABLE KEYS */;
+INSERT INTO `gamegenres` VALUES (1,1,1),(2,2,2),(3,3,4),(4,4,5),(5,5,3);
 /*!40000 ALTER TABLE `gamegenres` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -133,4 +132,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-08 10:21:31
+-- Dump completed on 2022-12-08 16:15:52
