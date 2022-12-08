@@ -133,3 +133,7 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2022-12-08 16:15:52
+
+-- Application Generated DML beyond this point
+---
+---

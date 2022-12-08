@@ -1,0 +1,22 @@
+{
+  "name": "gamelibrary",
+  "version": "1.0.0",
+  "description": "A Simple Video Game Library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/20rp/game-library.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/20rp/game-library/issues"
+  },
+  "homepage": "https://github.com/20rp/game-library#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
