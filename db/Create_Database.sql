@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `gamelibrary` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `gamelibrary`;
 -- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: gamelibrary
@@ -57,6 +59,7 @@ CREATE TABLE `games` (
   `gameReleaseDate` date DEFAULT NULL,
   `gameDeveloper` varchar(100) DEFAULT NULL,
   `gameMetaCriticScore` int DEFAULT NULL,
+  `publisherID` int DEFAULT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -67,7 +70,7 @@ CREATE TABLE `games` (
 
 LOCK TABLES `games` WRITE;
 /*!40000 ALTER TABLE `games` DISABLE KEYS */;
-INSERT INTO `games` VALUES (1,'Dark Souls III','2016-03-24','From Software',89),(2,'Minecraft','2011-11-18','Mojang',93),(3,'Metal Gear Solid V: The Phantom Pain','2015-09-01','Kojima Studios',93),(4,'Final Fantasy X','2001-06-19','Square',92),(5,'Rome: Total War','2004-06-22','Creative Assembly',92);
+INSERT INTO `games` VALUES (1,'Dark Souls III','2016-03-24','From Software',89,1),(2,'Minecraft','2011-11-18','Mojang',93,NULL),(3,'Metal Gear Solid V: The Phantom Pain','2015-09-01','Kojima Studios',93,3),(4,'Final Fantasy X','2001-06-19','Square',92,NULL),(5,'Rome: Total War','2004-06-22','Creative Assembly',92,NULL);
 /*!40000 ALTER TABLE `games` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -132,8 +135,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-08 16:15:52
-
--- Application Generated DML beyond this point
----
----
+-- Dump completed on 2022-12-12 14:37:15
