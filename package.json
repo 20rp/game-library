@@ -63,6 +63,7 @@
     "vary": "^1.1.2"
   },
   "scripts": {
+    "build": "npm install express --save && npm install -g nodemon && npm install -g browser-sync && npm install pug",
     "dev": "nodemon app.js",
     "ui": "browser-sync start --config bs-config.js"
   },
