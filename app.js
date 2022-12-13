@@ -1,5 +1,7 @@
 var express = require('express');
 var path = require('path');
+// Include inserter function
+var ins = require('./inserter');
 
 var app = express();
 const port = 8000;
@@ -17,11 +19,20 @@ console.log(path.join(__dirname, "public/*"));
 app.set("view engine", "pug");
 
 app.get('/', function (req, res) {
-    res.send("Hello world");
+    res.render("addGame", {
+        title: "My Game Library | Index"
+    });
 });
 
-app.get('/insert', function (req, res) {
-    res.render("insert");
+app.post('/insert', function (req, res) {
+    var gameTitle = req.body.gameTitle;
+    var gameReleaseDate = req.body.gameReleaseDate;
+    var gameDeveloper = req.body.gameDeveloper;
+    var gameMetaCriticScore = req.body.gameMetaCriticScore;
+    
+    // Insert the data into the games table
+    ins.inserter(gameTitle, gameReleaseDate, gameDeveloper, gameMetaCriticScore);
 })
+
 
 app.listen(port);
