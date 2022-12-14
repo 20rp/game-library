@@ -27,3 +27,5 @@ function inserter(gameTitle, gameReleaseDate, gameDeveloper, gameMetaCriticScore
         })
     });
 }
+
+module.exports = {inserter};

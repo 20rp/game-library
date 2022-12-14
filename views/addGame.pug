@@ -1,23 +1,22 @@
-html 
-    head 
-        link(rel="stylesheet"  type="text/css" href='public/style.css')
-    body
-        form(method="POST" action="/insert")
-            h1 Game Inserter
-            label Title 
-            input(name="gameTitle" type="textbox")
-            br
-            label Release Date 
-            input(name="gameReleaseDate" type="textbox")
-            br
-            label Developer 
-            input(name="gameDeveloper" type="textbox")
-            br
-            label Metacritic Score 
-            input(name="gameMetaCriticScore" type="textbox")
-            br
-            // TODO: read from publishers table and display as select
-            label Publisher 
-            input(name="game" type="textbox")
-            br
-            input(type="submit" value="Add")
+extends layout
+    
+block layout-content
+    form(method="POST" action="/insert")
+        h1 Game Inserter
+        label Title 
+        input(name="gameTitle" type="textbox")
+        br
+        label Release Date 
+        input(name="gameReleaseDate" type="textbox")
+        br
+        label Developer 
+        input(name="gameDeveloper" type="textbox")
+        br
+        label Metacritic Score 
+        input(name="gameMetaCriticScore" type="textbox")
+        br
+        // TODO: read from publishers table and display as select
+        label Publisher 
+        input(name="game" type="textbox")
+        br
+        input(type="submit" value="Add")

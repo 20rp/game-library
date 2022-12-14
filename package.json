@@ -41,6 +41,7 @@
     "ms": "^2.0.0",
     "mysql": "^2.18.1",
     "negotiator": "^0.6.3",
+    "npm": "^9.2.0",
     "object-inspect": "^1.12.2",
     "on-finished": "^2.4.1",
     "parseurl": "^1.3.3",
@@ -66,7 +67,8 @@
   "scripts": {
     "build": "npm install express --save && npm install -g nodemon && npm install -g browser-sync && npm install pug && npm install mysql",
     "dev": "nodemon app.js",
-    "ui": "browser-sync start --config bs-config.js"
+    "ui": "browser-sync start --config bs-config.js",
+    "gamelibrary": "nodemon app.js && browser-sync start --config bs-config.js"
   },
   "repository": {
     "type": "git",
