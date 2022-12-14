@@ -1,7 +1,7 @@
 var express = require('express');
 var path = require('path');
 // Include inserter function
-const ins = require('./inserter');
+const ins = require('./db/js/db_builder.js');
 
 var app = express();
 const port = 8000;

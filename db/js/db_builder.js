@@ -7,6 +7,14 @@ var con = mysql.createConnection({
     database: "gamelibrary"
 });
 
+// TODO: Implement function for checking if the tables exist and if not, building from the sql file.
+function dbBuilder() {
+}
+
+// TODO: Implement function to query publisher table for values to display in select in /addGame.
+function selectPublishers() {
+}
+
 // Function to insert data into games table in db. Will probably take seperate parameters for each input value.
 // TODO: publisherID parameter
 function inserter(gameTitle, gameReleaseDate, gameDeveloper, gameMetaCriticScore) {
