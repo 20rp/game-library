@@ -18,12 +18,14 @@ app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "pug");
 
 app.get('/', function (req, res) {
-    res.render("addGame", {
-        title: "My Game Library | Index",
-        gameTitle: req.body.gameTitle,
-        gameReleaseDate: req.body.gameReleaseDate,
-        gameDeveloper: req.body.gameDeveloper,
-        gameMetaCriticScore: req.body.gameMetaCriticScore
+    res.render("index", {
+        title: "Index"
+    });
+});
+
+app.get('/addGame', function (req, res) {
+    res.render("addGame", { 
+        title: "Game Inserter"
     });
 });
 
@@ -32,11 +34,9 @@ app.post('/insert', function (req, res) {
     var gameReleaseDate = req.body.gameReleaseDate;
     var gameDeveloper = req.body.gameDeveloper;
     var gameMetaCriticScore = req.body.gameMetaCriticScore;
-    
-    
+
     // Insert the data into the games table
     ins.inserter(gameTitle, gameReleaseDate, gameDeveloper, gameMetaCriticScore);
-})
-
+});
 
 app.listen(port);
