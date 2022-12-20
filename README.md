@@ -1,5 +1,6 @@
-# game-library
-A Simple Video Game Library
+# Game Library
+A Simple Video Game Library for maintaining a list of games, their respective genres and publishers.
+Uses a database backend with NodeJS and pug for the front end.
 
 ## Build
 
