@@ -13,6 +13,17 @@ function dbBuilder() {
 
 // TODO: Implement function to query publisher table for values to display in select in /addGame.
 function selectPublishers() {
+    con.connect(function(err) {
+        if (err) throw err;
+        var sql = "SELECT * FROM `gamelibrary`.`publishers`";
+        
+        con.query(sql, function(err, result) {
+            if (err) throw err;
+            console.log("Query ran successfully.");
+            return result;
+        });
+    });
+
 }
 
 // Function to insert data into games table in db. Will probably take seperate parameters for each input value.
@@ -30,7 +41,7 @@ function gameInserter(gameTitle, gameReleaseDate, gameDeveloper, gameMetaCriticS
 
         con.query(sql, [values[0], values[1], values[2], values[3]], function (err, result) {
             if (err) throw err;
-            console.log("Game ", gameTitle," Record created successfully!");
+            console.log("Game:", gameTitle,"record created successfully!");
         })
     });
 }
@@ -49,9 +60,21 @@ function publisherInserter(publisherName, publisherHq, publisherCountry, publish
 
         con.query(sql, [values[0], values[1], values[2], values[3], values[4]], function (err, result) {
             if (err) throw err;
-            console.log("Publisher", publisherName, "Record created successfully!")
+            console.log("Publisher:", publisherName, "record created successfully!")
         })
     })
 }
 
-module.exports = {gameInserter, publisherInserter};
+function genreInserter(genreTitle) {
+    con.connect(function(err) {
+        if (err) throw err;
+        var sql = "INSERT INTO `gamelibrary`.`genres` VALUES (null, ?)";
+
+        con.query(sql, genreTitle, function (err, result) {
+            if (err) throw err;
+            console.log("Genre:", genreTitle, "record created successfully!")
+        })
+    })
+}
+
+module.exports = {selectPublishers, gameInserter, publisherInserter, genreInserter};

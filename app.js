@@ -30,13 +30,23 @@ app.get('/addGame', function (req, res) {
 });
 
 app.get('/addPublisher', function (req, res) {
-res.render("addPublisher", {
-    title: "Publisher Inserter"
+    res.render("addPublisher", {
+        title: "Publisher Inserter"
+        });
+});
+
+app.get('/addGenre', function (req, res) {
+    res.render("addGenre", {
+        title: "Genre Inserter"
     });
 });
 
+app.get('/select', function (req, res) {
+    result = ins.selectPublishers();
+    console.log(result);
+})
+
 app.post('/insert', function (req, res) {
-    var table = 'games';
     var gameTitle = req.body.gameTitle;
     var gameReleaseDate = req.body.gameReleaseDate;
     var gameDeveloper = req.body.gameDeveloper;
@@ -54,6 +64,16 @@ app.post('/insertPublisher', function (req, res) {
     var publisherFoundedDate = req.body.publisherFoundedDate;
 
     ins.publisherInserter(publisherTitle, publisherHq, publisherCountry, publisherFounder, publisherFoundedDate);
+})
+
+
+app.post('/insertGenre', function (req, res) {
+    var genreTitle = req.body.genreTitle;
+
+    ins.genreInserter(genreTitle);
+})
+
+app.get('/success', function (req, res) {
 
 })
 
