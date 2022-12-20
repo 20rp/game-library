@@ -7,12 +7,15 @@
     "accepts": "^1.3.8",
     "array-flatten": "^1.1.1",
     "body-parser": "^1.20.1",
+    "browser-sync": "^2.27.11",
     "bytes": "^3.1.2",
     "call-bind": "^1.0.2",
     "content-disposition": "^0.5.4",
     "content-type": "^1.0.4",
     "cookie": "^0.5.0",
     "cookie-signature": "^1.0.6",
+    "datatables.net": "^1.13.1",
+    "datatables.net-dt": "^1.13.1",
     "debug": "^2.6.9",
     "depd": "^2.0.0",
     "destroy": "^1.2.0",
@@ -41,6 +44,7 @@
     "ms": "^2.0.0",
     "mysql": "^2.18.1",
     "negotiator": "^0.6.3",
+    "nodemon": "^2.0.20",
     "npm": "^9.2.0",
     "object-inspect": "^1.12.2",
     "on-finished": "^2.4.1",
@@ -65,7 +69,7 @@
     "vary": "^1.1.2"
   },
   "scripts": {
-    "build": "npm install express --save && npm install -g nodemon && npm install -g browser-sync && npm install pug && npm install mysql",
+    "build": "npm install express nodemon browser-sync pug mysql datatables.net datatables.net-dt --save",
     "dev": "nodemon app.js",
     "ui": "browser-sync start --config bs-config.js",
     "gamelibrary": "nodemon app.js && browser-sync start --config bs-config.js"

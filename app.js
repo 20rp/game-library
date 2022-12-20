@@ -1,5 +1,6 @@
 var express = require('express');
 var path = require('path');
+const { render } = require('pug');
 // Include inserter function
 const ins = require('./db/js/db_builder.js');
 
@@ -44,6 +45,12 @@ app.get('/addGenre', function (req, res) {
 app.get('/select', function (req, res) {
     result = ins.selectPublishers();
     console.log(result);
+});
+
+app.get('/show', function (req, res) {
+    res.render("show", {
+        title: "Summary View"
+    })
 })
 
 app.post('/insert', function (req, res) {
@@ -64,17 +71,18 @@ app.post('/insertPublisher', function (req, res) {
     var publisherFoundedDate = req.body.publisherFoundedDate;
 
     ins.publisherInserter(publisherTitle, publisherHq, publisherCountry, publisherFounder, publisherFoundedDate);
-})
+});
 
 
 app.post('/insertGenre', function (req, res) {
     var genreTitle = req.body.genreTitle;
 
     ins.genreInserter(genreTitle);
-})
+});
 
+// TODO: Render generic success page to redirect user to upon insertion completion.
 app.get('/success', function (req, res) {
 
-})
+});
 
 app.listen(port);
