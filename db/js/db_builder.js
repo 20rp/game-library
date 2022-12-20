@@ -17,10 +17,9 @@ function selectPublishers() {
 
 // Function to insert data into games table in db. Will probably take seperate parameters for each input value.
 // TODO: publisherID parameter
-function inserter(gameTitle, gameReleaseDate, gameDeveloper, gameMetaCriticScore) {
+function gameInserter(gameTitle, gameReleaseDate, gameDeveloper, gameMetaCriticScore) {
     con.connect(function(err) {
         if (err) throw err;
-        console.log("Connected!");
         var sql = "INSERT INTO `gamelibrary`.`games` VALUES (null, ?, ?, ?, ?, null)";
         var values = [
             gameTitle,
@@ -31,9 +30,28 @@ function inserter(gameTitle, gameReleaseDate, gameDeveloper, gameMetaCriticScore
 
         con.query(sql, [values[0], values[1], values[2], values[3]], function (err, result) {
             if (err) throw err;
-            console.log("Record created successfully!");
+            console.log("Game ", gameTitle," Record created successfully!");
         })
     });
 }
 
-module.exports = {inserter};
+function publisherInserter(publisherName, publisherHq, publisherCountry, publisherFounder, publisherFoundedDate) {
+    con.connect(function(err) {
+        if (err) throw err;
+        var sql = "INSERT INTO `gamelibrary`.`publishers` VALUES (null, ?, ?, ?, ?, ?)";
+        var values = [
+            publisherName,
+            publisherHq,
+            publisherCountry,
+            publisherFounder,
+            publisherFoundedDate
+        ];
+
+        con.query(sql, [values[0], values[1], values[2], values[3], values[4]], function (err, result) {
+            if (err) throw err;
+            console.log("Publisher", publisherName, "Record created successfully!")
+        })
+    })
+}
+
+module.exports = {gameInserter, publisherInserter};

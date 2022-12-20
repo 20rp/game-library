@@ -29,14 +29,32 @@ app.get('/addGame', function (req, res) {
     });
 });
 
+app.get('/addPublisher', function (req, res) {
+res.render("addPublisher", {
+    title: "Publisher Inserter"
+    });
+});
+
 app.post('/insert', function (req, res) {
+    var table = 'games';
     var gameTitle = req.body.gameTitle;
     var gameReleaseDate = req.body.gameReleaseDate;
     var gameDeveloper = req.body.gameDeveloper;
     var gameMetaCriticScore = req.body.gameMetaCriticScore;
 
     // Insert the data into the games table
-    ins.inserter(gameTitle, gameReleaseDate, gameDeveloper, gameMetaCriticScore);
+    ins.gameInserter(gameTitle, gameReleaseDate, gameDeveloper, gameMetaCriticScore);
 });
+
+app.post('/insertPublisher', function (req, res) {
+    var publisherTitle = req.body.publisherName;
+    var publisherHq = req.body.publisherHq;
+    var publisherCountry = req.body.publisherCountry;
+    var publisherFounder = req.body.publisherFounder;
+    var publisherFoundedDate = req.body.publisherFoundedDate;
+
+    ins.publisherInserter(publisherTitle, publisherHq, publisherCountry, publisherFounder, publisherFoundedDate);
+
+})
 
 app.listen(port);
