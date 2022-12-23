@@ -1,6 +1,9 @@
 var express = require('express');
 var path = require('path');
 const { render } = require('pug');
+var $ = require('jquery');
+var dt = require('datatables.net')();
+
 // Include inserter function
 const ins = require('./db/js/db_builder.js');
 
@@ -17,6 +20,8 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Set view engine to pug for displaying markup
 app.set("view engine", "pug");
+
+
 
 app.get('/', function (req, res) {
     res.render("index", {

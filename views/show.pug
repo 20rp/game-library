@@ -1,7 +1,20 @@
 extends layout
-
-block layout-content 
+    
+block layout-content
     table(id="games" class="display")
         thead 
-            tr 
+            tr
+               th Column 1
+               th Column 2 
         tbody
+            tr 
+                td Row 1 Data 1
+                td Row 1 Data 2
+            tr 
+                td Row 2 Data 1
+                td Row 2 Data 2
+    script.
+        $(document).ready(function () {
+            $('#games').DataTable();
+        });
+    

@@ -35,6 +35,7 @@
     "iconv-lite": "^0.4.24",
     "inherits": "^2.0.4",
     "ipaddr.js": "^1.9.1",
+    "jquery": "^3.6.3",
     "media-typer": "^0.3.0",
     "merge-descriptors": "^1.0.1",
     "methods": "^1.1.2",
@@ -69,7 +70,7 @@
     "vary": "^1.1.2"
   },
   "scripts": {
-    "build": "npm install express nodemon browser-sync pug mysql datatables.net datatables.net-dt --save",
+    "build": "npm install express nodemon browser-sync pug mysql jquery datatables.net datatables.net-dt --save",
     "dev": "nodemon app.js",
     "ui": "browser-sync start --config bs-config.js",
     "gamelibrary": "nodemon app.js && browser-sync start --config bs-config.js"
