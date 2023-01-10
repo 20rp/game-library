@@ -1,8 +1,13 @@
 var express = require('express');
 var path = require('path');
 const { render } = require('pug');
-var $ = require('jquery');
-var dt = require('datatables.net')();
+var dt = require('datatables.net');
+const { JSDOM } = require('jsdom');
+
+// Create a polyfill that is passed the dom global from JSDOM.
+const dom = new JSDOM();
+global.window = dom.window;
+global.document = dom.window.document;
 
 // Include inserter function
 const ins = require('./db/js/db_builder.js');
@@ -25,6 +30,7 @@ app.set("view engine", "pug");
 
 app.get('/', function (req, res) {
     res.render("index", {
+        window: global.window,
         title: "Index"
     });
 });
@@ -54,9 +60,16 @@ app.get('/select', function (req, res) {
 
 app.get('/show', function (req, res) {
     res.render("show", {
-        title: "Summary View"
-    })
-})
+        title: "Summary View",
+        window: global.window
+    });
+});
+
+app.get('/datatable', function (req, res) {
+    res.render("datatable", {
+        title: "HUZZAH, THE DATATABLES"
+    });
+});
 
 app.post('/insert', function (req, res) {
     var gameTitle = req.body.gameTitle;

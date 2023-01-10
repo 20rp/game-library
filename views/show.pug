@@ -1,6 +1,10 @@
 extends layout
     
 block layout-content
+    // Add the DataTables CSS
+    link(rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css")
+    script(src="https://code.jquery.com/jquery-3.5.1.js")
+    script(src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js")
     table(id="games" class="display")
         thead 
             tr
