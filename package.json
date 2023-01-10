@@ -21,5 +21,15 @@
   "bugs": {
     "url": "https://github.com/20rp/game-library/issues"
   },
-  "homepage": "https://github.com/20rp/game-library#readme"
+  "homepage": "https://github.com/20rp/game-library#readme",
+  "dependencies": {
+    "browser-sync": "^2.27.11",
+    "datatables.net": "^1.13.1",
+    "datatables.net-dt": "^1.13.1",
+    "express": "^4.18.2",
+    "jquery": "^3.6.3",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.20",
+    "pug": "^3.0.2"
+  }
 }
