@@ -1,4 +1,6 @@
 var mysql = require('mysql');
+const { Sequelize, DataTypes } = require('sequelize');
+
 
 var con = mysql.createConnection({
     host: "localhost",
@@ -77,4 +79,36 @@ function genreInserter(genreTitle) {
     })
 }
 
-module.exports = {selectPublishers, gameInserter, publisherInserter, genreInserter};
+async function sqlcon() {
+    const sequelize = new Sequelize('gamelibrary', 'dbadmin', 'm1tarash1', {
+        host: 'localhost',
+        dialect: 'mysql'
+    });
+    
+    try {
+        await sequelize.authenticate();
+        console.log('Connection has been established successfully.');
+    } catch (error) {
+        console.error('Unable to connect to the database: ', error);
+    }
+
+    const Game = sequelize.define('Game', {
+        gameTitle: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        gameReleaseDate: {
+            type: DataTypes.DATE,
+        },
+        gameDeveloper: {
+            type: DataTypes.STRING
+        }
+    })
+
+    console.log(Game === sequelize.models.Game);
+};
+
+
+
+
+module.exports = {selectPublishers, gameInserter, publisherInserter, genreInserter, sqlcon};
