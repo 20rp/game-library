@@ -92,20 +92,19 @@ async function sqlcon() {
         console.error('Unable to connect to the database: ', error);
     }
 
-    const Game = sequelize.define('Game', {
-        gameTitle: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        gameReleaseDate: {
-            type: DataTypes.DATE,
-        },
-        gameDeveloper: {
-            type: DataTypes.STRING
-        }
-    })
+    () => {
+        class Game extends Sequelize.Model {}
+        Game.init({
+            gameTitle: DataTypes.STRING,
+            gameDeveloper: DataTypes.STRING,
+            gameReleaseDate: DataTypes.DATE
+        }, {sequelize});
+        return Game;
+    }
 
-    console.log(Game === sequelize.models.Game);
+    const games = await Game.findAll();
+    console.log(games.every(game => game instanceof Game));
+    console.log("All games:", JSON.stringify(games, null, 2));
 };
 
 

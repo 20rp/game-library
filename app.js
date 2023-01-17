@@ -33,6 +33,7 @@ app.get('/', function (req, res) {
         window: global.window,
         title: "Index"
     });
+    ins.sqlcon();
 });
 
 app.get('/addGame', function (req, res) {
