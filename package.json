@@ -4,7 +4,7 @@
   "description": "A simple video game library",
   "main": "app.js",
   "scripts": {
-    "build": "npm install express nodemon browser-sync pug mysql jquery datatables.net datatables.net-dt sequelize mysql2 --save",
+    "build": "npm install express nodemon browser-sync pug mysql jquery datatables.net datatables.net-dt sequelize sequelize-cli mysql2 --save",
     "dev": "nodemon app.js",
     "ui": "browser-sync start --config bs-config.js",
     "gamelibrary": "nodemon app.js && browser-sync start --config bs-config.js"
@@ -34,6 +34,7 @@
     "nodemon": "^2.0.20",
     "npm": "^9.3.0",
     "pug": "^3.0.2",
-    "sequelize": "^6.28.0"
+    "sequelize": "^6.28.0",
+    "sequelize-cli": "^6.5.2"
   }
 }

@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "dbadmin",
+    "password": "m1tarash1",
+    "database": "gamelibrary",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "dbadmin",
+    "password": "m1tarash1",
+    "database": "gamelibrary",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "dbadmin",
+    "password": "m1tarash1",
+    "database": "gamelibrary",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}

@@ -79,35 +79,9 @@ function genreInserter(genreTitle) {
     })
 }
 
-async function sqlcon() {
-    const sequelize = new Sequelize('gamelibrary', 'dbadmin', 'm1tarash1', {
-        host: 'localhost',
-        dialect: 'mysql'
-    });
-    
-    try {
-        await sequelize.authenticate();
-        console.log('Connection has been established successfully.');
-    } catch (error) {
-        console.error('Unable to connect to the database: ', error);
-    }
-
-    () => {
-        class Game extends Sequelize.Model {}
-        Game.init({
-            gameTitle: DataTypes.STRING,
-            gameDeveloper: DataTypes.STRING,
-            gameReleaseDate: DataTypes.DATE
-        }, {sequelize});
-        return Game;
-    }
-
-    const games = await Game.findAll();
-    console.log(games.every(game => game instanceof Game));
-    console.log("All games:", JSON.stringify(games, null, 2));
-};
 
 
 
 
-module.exports = {selectPublishers, gameInserter, publisherInserter, genreInserter, sqlcon};
+
+module.exports = {selectPublishers, gameInserter, publisherInserter, genreInserter};
