@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 // Controller routes
-const game_controller = require("../controllers/game-controller");
+const game_controller = require("../controllers/gameController");
 
 // Game routes
 router.get("/", game_controller.index);

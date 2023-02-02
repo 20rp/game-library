@@ -2,6 +2,8 @@ var express = require('express');
 var path = require('path');
 var dt = require('datatables.net');
 const { JSDOM } = require('jsdom');
+
+// Used for including the Sequelize module and allowing for synchronization of the database.
 const db = require('./models');
 const catalogRouter = require("./routes/catalog");
 
@@ -30,8 +32,6 @@ app.use(express.static(path.join(__dirname, "public")));
 // Set view engine to pug for displaying markup
 app.set("view engine", "pug");
 
-
-
 app.get('/', function (req, res) {
     res.render("index", {
         window: global.window,
@@ -40,24 +40,6 @@ app.get('/', function (req, res) {
 });
 
 app.use("/catalog", catalogRouter);
-
-app.get('/addGame', function (req, res) {
-    res.render("addGame", { 
-        title: "Game Inserter"
-    });
-});
-
-app.get('/addPublisher', function (req, res) {
-    res.render("addPublisher", {
-        title: "Publisher Inserter"
-        });
-});
-
-app.get('/addGenre', function (req, res) {
-    res.render("addGenre", {
-        title: "Genre Inserter"
-    });
-});
 
 app.get('/select', function (req, res) {
     result = ins.selectPublishers();
@@ -71,40 +53,6 @@ app.get('/show', function (req, res) {
         window: global.window
     });
 });
-
-app.get('/datatable', function (req, res) {
-    res.render("datatable", {
-        title: "HUZZAH, THE DATATABLES"
-    });
-});
-
-app.post('/insert', function (req, res) {
-    var gameTitle = req.body.gameTitle;
-    var gameReleaseDate = req.body.gameReleaseDate;
-    var gameDeveloper = req.body.gameDeveloper;
-    var gameMetaCriticScore = req.body.gameMetaCriticScore;
-
-    // Insert the data into the games table
-    ins.gameInserter(gameTitle, gameReleaseDate, gameDeveloper, gameMetaCriticScore);
-});
-
-app.post('/insertPublisher', function (req, res) {
-    var publisherTitle = req.body.publisherName;
-    var publisherHq = req.body.publisherHq;
-    var publisherCountry = req.body.publisherCountry;
-    var publisherFounder = req.body.publisherFounder;
-    var publisherFoundedDate = req.body.publisherFoundedDate;
-
-    ins.publisherInserter(publisherTitle, publisherHq, publisherCountry, publisherFounder, publisherFoundedDate);
-});
-
-
-app.post('/insertGenre', function (req, res) {
-    var genreTitle = req.body.genreTitle;
-
-    ins.genreInserter(genreTitle);
-});
-
 
 // TODO: Render generic success page to redirect user to upon insertion completion.
 app.get('/success', function (req, res) {
