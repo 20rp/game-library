@@ -1,10 +1,25 @@
-module.exports = function(sequelize, DataTypes) {
-    var Game = sequelize.define("Game", {
-        name: DataTypes.STRING,
-        developer: DataTypes.STRING,
-        releaseDate: DataTypes.DATE,
-        publisher: DataTypes.STRING
+const { Sequelize, DataTypes} = require('sequelize');
+const db = require('../db/js/database');
+
+    const Game = db.define('Game', {
+        gameTitle: {
+            type: DataTypes.STRING
+        },
+        gameReleaseDate: {
+            type: DataTypes.DATE
+        },
+        gameDeveloper: {
+            type: DataTypes.STRING
+        },
+        gameMetaCriticScore: {
+            type: DataTypes.INTEGER
+        },
+        publisherID: {
+            type: DataTypes.INTEGER
+        }
+    }, {
+        timestamps: false,
+        tableName: 'games'
     });
 
-    return Game;
-}
+    module.exports = Game;

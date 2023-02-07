@@ -4,7 +4,14 @@ var dt = require('datatables.net');
 const { JSDOM } = require('jsdom');
 
 // Used for including the Sequelize module and allowing for synchronization of the database.
-const db = require('./models');
+const db = require('./db/js/database.js');
+
+
+// Authenticate database connection.
+db.authenticate()
+.then(() => console.log('Database connected...'))
+.catch(err => console.error(err));
+
 const catalogRouter = require("./routes/catalog");
 
 // Create a polyfill that is passed the dom global from JSDOM.
@@ -59,9 +66,6 @@ app.get('/success', function (req, res) {
 
 });
 
-db.sequelize.sync().then(function() {
-    app.listen(port, function() {
+app.listen(port, function() {
         console.log("Express server running on port: " + port);
     });
-
-})
