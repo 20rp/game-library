@@ -4,7 +4,7 @@ exports.index = (req, res) => {
     res.send("TODO: Index");
 };
 
-exports.game_list = function (req, res) {
+exports.gameList = function (req, res) {
     Game.findAll()
     .then(games => {
         console.log(games);
