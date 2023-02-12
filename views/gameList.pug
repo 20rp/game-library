@@ -1,0 +1,17 @@
+
+h1 My Games
+  thead 
+    tr 
+      th Title
+      th Release Date
+      th Developer 
+      th MetaCritic Score
+      br
+    tbody 
+      each game in games 
+        tr 
+          td= game.gameTitle  
+          td= game.gameReleaseDate 
+          td= game.gameDeveloper 
+          td= game.gameMetaCriticScore
+          br

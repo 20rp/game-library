@@ -1,24 +1,23 @@
-extends layout
-    
-block layout-content
-    // Add the DataTables CSS
-    link(rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css")
-    script(src="https://code.jquery.com/jquery-3.5.1.js")
-    script(src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js")
-    table(id="games" class="display")
-        thead 
-            tr
-               th Column 1
-               th Column 2 
-        tbody
-            tr 
-                td Row 1 Data 1
-                td Row 1 Data 2
-            tr 
-                td Row 2 Data 1
-                td Row 2 Data 2
-    script.
-        $(document).ready(function () {
-            $('#games').DataTable();
-        });
-    
+// Add the DataTables CSS
+link(rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css")
+script(src="https://code.jquery.com/jquery-3.5.1.js")
+script(src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js")
+table(id="games" class="display")
+    thead 
+        tr
+            th Title
+            th Release Date 
+            th Developer
+            th MetaCritic Score
+    tbody
+       each game in games 
+        tr 
+            td= game.gameTitle 
+            td= game.gameReleaseDate 
+            td= game.gameDeveloper 
+            td= game.gameMetaCriticScore 
+
+script.
+    $(document).ready(function () {
+        $('#games').DataTable();
+    });
