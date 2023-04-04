@@ -4,16 +4,22 @@ link(rel="stylesheet" href="/catalog.css")
 script(src="https://code.jquery.com/jquery-3.5.1.js")
 script(src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js")
 div#container
-    table(id="genres" class="display"  style="width:100%")
+    table(id="games" class="display"  style="width:100%")
         thead 
             tr
                 th Title
+                th Date
+                th Developer 
+                th MetaCritic
         tbody
-        each genre in genres 
-            tr 
-                td= genre.genreTitle 
+        each game in games 
+            tr
+                td= game.gameTitle
+                td= game.gameReleaseDate 
+                td= game.gameDeveloper 
+                td= game.gameMetaCriticScore
 
     script.
         $(document).ready(function () {
-            $('#genres').DataTable();
+            $('#games').DataTable();
         });

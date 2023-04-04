@@ -2,13 +2,21 @@ const express = require("express");
 const router = express.Router();
 const db = require('../db/js/database')
 const Game = require('../models/Game');
+const Genre = require('../models/Genre');
 
 Game.sync();
 
 // Controller routes
-const game_controller = require("../controllers/gameController");
+const gameController = require("../controllers/gameController");
+const genreController = require("../controllers/genreController");
 
 // GET request for one Game.
-router.get("/games", game_controller.gameList);
+router.get("/show", gameController.gameList);
+
+// Console log JSON games
+router.get("/games", gameController.games);
+
+router.get("/genres", genreController.show);
+
 
 module.exports = router;

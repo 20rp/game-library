@@ -1,0 +1,52 @@
+body {
+    margin: 0 auto;
+    /* background-color: grey; */
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#games {
+    border-collapse: collapse;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+  }
+  
+  #games th,
+  #games td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+  }
+  
+  #games th {
+    background-color: #f2f2f2;
+    color: #444;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  #games tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  #games tbody tr:hover {
+    background-color: #f2f2f2;
+  }
+  
+  @media screen and (max-width: 767px) {
+    #games {
+      font-size: 14px;
+    }
+    #games th,
+    #games td {
+      display: block;
+      padding: 8px;
+      text-align: center;
+    }
+    #games td:before {
+      content: attr(data-title);
+      display: inline-block;
+      font-weight: bold;
+      margin-right: 5px;
+      text-transform: uppercase;
+    }
+  }
