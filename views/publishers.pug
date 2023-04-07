@@ -1,0 +1,26 @@
+// Add the DataTables CSS
+link(rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css")
+link(rel="stylesheet" href="/catalog.css")
+script(src="https://code.jquery.com/jquery-3.5.1.js")
+script(src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js")
+div#container
+    table(id="publishers" class="display"  style="width:100%")
+        thead 
+            tr
+                th Name
+                th HQ
+                th Country 
+                th Founder 
+                th Founded
+        tbody
+        each publisher in publishers 
+            tr
+                td= publisher.publisherName
+                td= publisher.publisherHq
+                td= publisher.publisherCountry 
+                td= publisher.publisherFounder 
+                td= publisher.publisherFoundedDate
+    script.
+        $(document).ready(function () {
+            $('#games').DataTable();
+        });

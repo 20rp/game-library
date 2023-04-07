@@ -13,6 +13,7 @@ db.authenticate()
 .catch(err => console.error(err));
 
 const catalogRouter = require("./routes/catalog");
+const insertRouter = require("./routes/inserter")
 
 // Create a polyfill that is passed the dom global from JSDOM.
 const dom = new JSDOM();
@@ -54,10 +55,16 @@ app.get('/select', function (req, res) {
 });
 
 app.get('/show', function (req, res) {
-
     res.render("show", {
         title: "Summary View",
         window: global.window
+    });
+});
+
+app.get("/insert", function (req, res) {
+    res.render("insertGame", {
+        title: "Game Library Inserter",
+        winodw: global.window
     });
 });
 

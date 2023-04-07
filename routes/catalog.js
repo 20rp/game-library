@@ -9,6 +9,7 @@ Game.sync();
 // Controller routes
 const gameController = require("../controllers/gameController");
 const genreController = require("../controllers/genreController");
+const publisherController = require("../controllers/publisherController");
 
 // GET request for one Game.
 router.get("/show", gameController.gameList);
@@ -16,7 +17,9 @@ router.get("/show", gameController.gameList);
 // Console log JSON games
 router.get("/games", gameController.games);
 
-router.get("/genres", genreController.show);
+router.get("/genres", genreController.genres);
+
+router.get("/publishers", publisherController.publishers); // TODO: complete publisherController
 
 
 module.exports = router;
