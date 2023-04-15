@@ -1,52 +1,59 @@
 body {
     margin: 0 auto;
-    /* background-color: grey; */
+    background-color: rgb(89, 215, 232);
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-#games {
+#games, #publishers, #genres {
     border-collapse: collapse;
     font-family: Arial, Helvetica, sans-serif;
     width: 100%;
   }
   
-  #games th,
-  #games td {
+  #games, #publishers, #genres th,
+  #games, #publishers, #genres td {
     border: 1px solid #ddd;
     padding: 12px;
     text-align: left;
   }
   
-  #games th {
-    background-color: #f2f2f2;
+  #games, #publishers, #genres th {
+    background-color: #f2f2f2b4;
     color: #444;
     font-weight: bold;
     text-transform: uppercase;
   }
   
-  #games tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+  #games, #publishers, #genres tbody tr:nth-child(even) {
+    background-color: #f9f9f99f;
   }
   
-  #games tbody tr:hover {
+  #games, #publishers, #genres tbody tr:hover {
     background-color: #f2f2f2;
   }
   
   @media screen and (max-width: 767px) {
-    #games {
+    #games, #publishers, #genres {
       font-size: 14px;
     }
-    #games th,
-    #games td {
+    #games, #publishers, #genres th,
+    #games, #publishers, #genres td {
       display: block;
       padding: 8px;
       text-align: center;
     }
-    #games td:before {
+    #games, #publishers, #genres td:before {
       content: attr(data-title);
       display: inline-block;
       font-weight: bold;
       margin-right: 5px;
       text-transform: uppercase;
     }
+  }
+
+  #container {
+    display: block;
+    width: 85%;
+    padding: 40px;
+    border: 1px solid black;
   }

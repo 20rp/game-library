@@ -11,9 +11,6 @@ const gameController = require("../controllers/gameController");
 const genreController = require("../controllers/genreController");
 const publisherController = require("../controllers/publisherController");
 
-// GET request for one Game.
-router.get("/show", gameController.gameList);
-
 // Console log JSON games
 router.get("/games", gameController.games);
 

@@ -54,13 +54,6 @@ app.get('/select', function (req, res) {
     console.log(result);
 });
 
-app.get('/show', function (req, res) {
-    res.render("show", {
-        title: "Summary View",
-        window: global.window
-    });
-});
-
 app.get("/insert", function (req, res) {
     res.render("insertGame", {
         title: "Game Library Inserter",
@@ -68,11 +61,13 @@ app.get("/insert", function (req, res) {
     });
 });
 
-// TODO: Render generic success page to redirect user to upon insertion completion.
-app.get('/success', function (req, res) {
-
+app.get('/insertPublisher', function (req, res) {
+    res.render("insertPublisher", {
+        title: "Insert Publisher | Game Library",
+        window: global.window
+    });
 });
 
 app.listen(port, function() {
         console.log("Express server running on port: " + port);
-    });
+});
