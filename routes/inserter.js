@@ -13,6 +13,6 @@ Game.sync();
 const gameInsertController = require("../controllers/gameInsertController")
 
 
-router.get("/insertGame", gameInsertController.insert); // TODO configure controller for inserting the route
+router.get("/Game", gameInsertController.render); // TODO configure controller for inserting the route
 
 module.exports = router;

@@ -17,14 +17,16 @@ body
             label(for="") Game Publisher
                 br
                 select
-                    option **TODO PUBLISHER SELECT** 
+                    each publisher in publishers
+                        option(value=publisher.publisherName)= publisher.publisherName
                 a(href="/insertPublisher" target="_blank")
                     input(type="button", value=">") 
                 br
             label(for="") Game Genre
                 br
                 select
-                    option **TODO GENRE SELECT**
+                    each genre in genres
+                        option(value=genre.genreTitle)= genre.genreTitle
                 input(type="button", value=">")
                 br 
             input(type="button" value="Add") 

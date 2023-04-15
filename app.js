@@ -48,17 +48,11 @@ app.get('/', function (req, res) {
 });
 
 app.use("/catalog", catalogRouter);
+app.use("/insert", insertRouter)
 
 app.get('/select', function (req, res) {
     result = ins.selectPublishers();
     console.log(result);
-});
-
-app.get("/insert", function (req, res) {
-    res.render("insertGame", {
-        title: "Game Library Inserter",
-        winodw: global.window
-    });
 });
 
 app.get('/insertPublisher', function (req, res) {
