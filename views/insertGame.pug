@@ -1,0 +1,32 @@
+body  
+    form(action="")
+        div 
+            label(for="") Game Title
+                br
+                input(type="text")
+                br
+            label(for="") Game Release Date
+                br
+                input(type="text")
+                br
+            label(for="") Game Developer
+                br
+                input(type="text")
+                br
+            // TODO Create insert option within page that brings up another insert page for publisher
+            label(for="") Game Publisher
+                br
+                select
+                    each publisher in publishers
+                        option(value=publisher.publisherName)= publisher.publisherName
+                a(href="/insertPublisher" target="_blank")
+                    input(type="button", value=">") 
+                br
+            label(for="") Game Genre
+                br
+                select
+                    //- each genre in genres
+                    //-     option(value=genre.genreTitle)= genre.genreTitle
+                input(type="button", value=">")
+                br 
+            input(type="button" value="Add") 

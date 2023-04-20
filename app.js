@@ -13,6 +13,7 @@ db.authenticate()
 .catch(err => console.error(err));
 
 const catalogRouter = require("./routes/catalog");
+const insertRouter = require("./routes/inserter")
 
 // Create a polyfill that is passed the dom global from JSDOM.
 const dom = new JSDOM();
@@ -47,25 +48,15 @@ app.get('/', function (req, res) {
 });
 
 app.use("/catalog", catalogRouter);
+app.use("/insert", insertRouter)
 
-app.get('/select', function (req, res) {
-    result = ins.selectPublishers();
-    console.log(result);
-});
-
-app.get('/show', function (req, res) {
-
-    res.render("show", {
-        title: "Summary View",
+app.get('/insertPublisher', function (req, res) {
+    res.render("insertPublisher", {
+        title: "Insert Publisher | Game Library",
         window: global.window
     });
 });
 
-// TODO: Render generic success page to redirect user to upon insertion completion.
-app.get('/success', function (req, res) {
-
-});
-
 app.listen(port, function() {
         console.log("Express server running on port: " + port);
-    });
+});
