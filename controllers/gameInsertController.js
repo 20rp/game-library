@@ -1,6 +1,6 @@
 const Game = require("../models/Game");
 const Publisher = require("../models/Publisher");
-const Genre = require("../models/Genre")
+const Genre = require("../models/Genre");
 
 exports.insert = function (req, res) {
     Game.findAll();
@@ -17,14 +17,12 @@ exports.insert = function (req, res) {
 }
 
 // Problem: Since I am trying to parse two seperate objects into the template, I will need to possibly look at compiling the template first with one set and then
-// following that render the final final with the second object parsed into it.
+// following that render the final with the second object parsed into it.
 exports.render = function (req, res) {
     Publisher.findAll()
-    Genre.findAll()
-    .then(([publishers, genres]) => {
+    .then(publishers => {
         res.render("../views/insertGame", { 
-            publishers: publishers,
-            genres: genres
+            publishers: publishers
         });
     })
     .catch(err => console.error(err));

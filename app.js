@@ -50,11 +50,6 @@ app.get('/', function (req, res) {
 app.use("/catalog", catalogRouter);
 app.use("/insert", insertRouter)
 
-app.get('/select', function (req, res) {
-    result = ins.selectPublishers();
-    console.log(result);
-});
-
 app.get('/insertPublisher', function (req, res) {
     res.render("insertPublisher", {
         title: "Insert Publisher | Game Library",
