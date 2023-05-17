@@ -1,6 +1,5 @@
 var express = require('express');
 var path = require('path');
-var dt = require('datatables.net');
 const { JSDOM } = require('jsdom');
 
 // Used for including the Sequelize module and allowing for synchronization of the database.
