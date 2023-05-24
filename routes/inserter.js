@@ -11,8 +11,13 @@ Game.sync();
 // Controller routes
 
 const gameInsertController = require("../controllers/gameInsertController")
+const genreInsertController = require("../controllers/genreInsertController")
+const publisherInsertController = require("../controllers/publisherInsertController")
 
+router.get("/game", gameInsertController.render);
 
-router.get("/Game", gameInsertController.render); // TODO configure controller for inserting the route
+router.get("/table/genre", genreInsertController.insertGenre);
+
+router.get("/table/publisher", publisherInsertController.insertPublisher);
 
 module.exports = router;

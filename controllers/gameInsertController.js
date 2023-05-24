@@ -24,8 +24,6 @@ exports.insert = function (req, res) {
     console.log("Record created with ID: ", game.id);
 }
 
-// Problem: Since I am trying to parse two seperate objects into the template, I will need to possibly look at compiling the template first with one set and then
-// following that render the final with the second object parsed into it.
 exports.render = function (req, res) {
     const publishersPromise = Publisher.findAll()
     const genresPromise = Genre.findAll()

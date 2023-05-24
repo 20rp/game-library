@@ -19,7 +19,7 @@ body
                 select
                     each publisher in publishers
                         option(value=publisher.publisherName)= publisher.publisherName
-                a(href="/insertPublisher" target="_blank")
+                a(href="/insert/table/publisher" target="_blank", rel="noopener noreferrer")
                     input(type="button", value=">") 
                 br
             label(for="") Game Genre
@@ -27,6 +27,7 @@ body
                 select
                     each genre in genres
                         option(value=genre.genreTitle)= genre.genreTitle
-                input(type="button", value=">")
+                a(href="/insert/table/genre", target="_blank", rel="noopener noreferrer")
+                    input(type="button", value=">") 
                 br 
             input(type="button" value="Add") 

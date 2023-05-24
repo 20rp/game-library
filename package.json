@@ -10,7 +10,7 @@
     "gamelibrary": "nodemon app.js && browser-sync start --config bs-config.js"
   },
   "repository": {
-    "type": "git",
+    "type": "module",
     "url": "git+https://github.com/20rp/game-library.git"
   },
   "keywords": [

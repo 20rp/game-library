@@ -16,7 +16,7 @@ router.get("/games", gameController.games);
 
 router.get("/genres", genreController.genres);
 
-router.get("/publishers", publisherController.publishers); // TODO: complete publisherController
+router.get("/publishers", publisherController.publishers); 
 
 
 module.exports = router;
