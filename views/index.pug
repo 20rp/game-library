@@ -2,13 +2,18 @@ html
     head 
     body 
         h1 Game Library
+        //- Get games table
         form(method="get" action="/catalog/games")
             input(type="submit" value="Games")
+        //- Get publishers table
         form(method="get" action="/catalog/publishers")
             input(type="submit" value="Publishers")
+        //- Get genres table
         form(method="get" action="/catalog/genres")
             input(type="submit" value="Genres")
         hr
         form(method="get" action="/insert/game")
             input(type="submit" value="Insert")
+        a(href="/test-form")
+            input(type="submit", value="Test form") 
 
