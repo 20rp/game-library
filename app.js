@@ -1,6 +1,7 @@
 var express = require('express');
 var path = require('path');
 const { JSDOM } = require('jsdom');
+const bodyParser = require('body-parser')
 
 // Used for including the Sequelize module and allowing for synchronization of the database.
 const db = require('./db/js/database.js');
@@ -24,6 +25,9 @@ const port = 9999;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Initialise body-parser within express
+app.use(bodyParser.urlencoded({extended: true}))
+
 // Set default directory for pug template files
 app.set("views", path.join(__dirname, "views"));
 // NOTE in future make sure that you do not include the trailing backslash as this causes the MIME type error.
@@ -38,15 +42,22 @@ app.get('/', function (req, res) {
     });
 });
 
+app.get("/test-form", function (req, res) {
+    res.render("testForm", {
+        title: "Test form",
+    })
+})
+
+app.post("/post-form", function (req, res) {
+    testRes = req.body.textBox
+    res.render("testForm", {
+        testResponse: testRes
+    })
+    console.log(testRes)
+})
+
 app.use("/catalog", catalogRouter);
 app.use("/insert", insertRouter);
-
-app.get('/insertPublisher', function (req, res) {
-    res.render("insertPublisher", {
-        title: "Insert Publisher | Game Library",
-        window: global.window
-    });
-});
 
 app.listen(port, function () {
     console.log("Express server running on port: " + port);

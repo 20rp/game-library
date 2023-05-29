@@ -1,24 +1,28 @@
 body  
-    form(action="")
+    form(method="post" action="/insert/postGame")
         div 
             label(for="") Game Title
                 br
-                input(type="text")
+                input(type="text"  name="gameTitle")
                 br
             label(for="") Game Release Date
                 br
-                input(type="text")
+                input(type="text"  name="gameReleaseDate")
                 br
             label(for="") Game Developer
                 br
-                input(type="text")
+                input(type="text"  name="gameDeveloper")
                 br
-            // TODO Create insert option within page that brings up another insert page for publisher
+            //- Eventually would like to query an API for this one, to avoid the user putting in false values.
+            label(for="") Game MetaCritic Score
+                br
+                input(type="text" name="gameMetaCriticScore")
+                br
             label(for="") Game Publisher
                 br
                 select
                     each publisher in publishers
-                        option(value=publisher.publisherName)= publisher.publisherName
+                        option(value=publisher.publisherName name=gamePublisher)= publisher.publisherName
                 a(href="/insert/table/publisher" target="_blank", rel="noopener noreferrer")
                     input(type="button", value=">") 
                 br
@@ -26,8 +30,8 @@ body
                 br
                 select
                     each genre in genres
-                        option(value=genre.genreTitle)= genre.genreTitle
+                        option(value=genre.genreTitle name=gameGenre)= genre.genreTitle
                 a(href="/insert/table/genre", target="_blank", rel="noopener noreferrer")
                     input(type="button", value=">") 
                 br 
-            input(type="button" value="Add") 
+            input(type="submit" value="Add") 
