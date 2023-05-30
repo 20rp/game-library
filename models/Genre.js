@@ -1,18 +1,22 @@
-const { Sequelize, DataTypes} = require('sequelize');
+const { Sequelize, DataTypes } = require('sequelize');
 const db = require('../db/js/database');
 
-const Genre = db.define('Genre', {
+const Genre = db.define(
+  'Genre',
+  {
     ID: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
     },
     genreTitle: {
-        type: DataTypes.STRING
-    }
-},{
+      type: DataTypes.STRING,
+    },
+  },
+  {
     timestamps: false,
-    tableName: 'genres'
-});
+    tableName: 'genres',
+  }
+);
 
 module.exports = Genre;

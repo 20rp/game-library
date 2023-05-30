@@ -1,30 +1,34 @@
-const {Sequelize, DataTypes} = require('sequelize');
+const { Sequelize, DataTypes } = require('sequelize');
 const db = require('../db/js/database');
 
-const Publisher = db.define('Publisher', {
+const Publisher = db.define(
+  'Publisher',
+  {
     id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
     },
     publisherName: {
-        type: DataTypes.STRING
+      type: DataTypes.STRING,
     },
     publisherHq: {
-        type: DataTypes.STRING
+      type: DataTypes.STRING,
     },
     publisherCountry: {
-        type: DataTypes.STRING
+      type: DataTypes.STRING,
     },
     publisherFounder: {
-        type: DataTypes.STRING
+      type: DataTypes.STRING,
     },
     publisherFoundedDate: {
-        type: DataTypes.DATE
-    }
-}, {
+      type: DataTypes.DATE,
+    },
+  },
+  {
     timestamps: false,
-    tableName: 'publishers'
-});
+    tableName: 'publishers',
+  }
+);
 
 module.exports = Publisher;
