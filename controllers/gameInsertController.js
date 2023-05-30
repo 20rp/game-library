@@ -9,6 +9,14 @@
 const Game = require("../models/Game");
 const Publisher = require("../models/Publisher");
 const Genre = require("../models/Genre");
+const bp = require('body-parser')
+
+var express = require('express')
+var app = express()
+
+app.use(express.json())
+app.use(bp.urlencoded({extended: false}))
+
 
 // exports.insertTest = function (req, res) {
 //     Game.findAll();
@@ -29,6 +37,7 @@ exports.insertGame = function (req, res) {
     const genresPromise = Genre.findAll()
 
     Promise.all([publishersPromise, genresPromise])
+    .then(console.log("Tables initiliased."))
     .then(([publishers, genres]) => {
         res.render("../views/insertGame", { 
             publishers: publishers,
@@ -40,7 +49,8 @@ exports.insertGame = function (req, res) {
 
 exports.postGame = function (req, res) {
     // Assign local variables to the values parsed from the body in /insert/game
-    console.log("executing postGame")
+
+    console.log("executing post game")
     let gameTitle = req.body.gameTitle;
     let gameReleaseDate = req.body.gameReleaseDate;
     let gameDeveloper = req.body.gameDeveloper;
@@ -48,15 +58,15 @@ exports.postGame = function (req, res) {
     let gamePublisher = req.body.gamePublisher;
     let gameGenre = req.body.gameGenre;
 
-    res.render("insertGame", {})
-    console.log("New Game:", [gameTitle, gameReleaseDate, gameDeveloper, gameMetaCriticScore])
+    res.redirect("/insert/game")
+    console.log("New Game:", [gameTitle, gameReleaseDate, gameDeveloper, gameMetaCriticScore, gamePublisher, gameGenre])
     
-    try {
-        console.log(gamePublisher);
-        console.log(gameGenre)
-    } catch (error) {
-        console.error(error)
-    }
+    // try {
+    //     console.log(gamePublisher);
+    //     console.log(gameGenre)
+    // } catch (error) {
+    //     console.error(error)
+    // }
 
     // Game.findAll()
     // game = Game.create({

@@ -2,6 +2,11 @@ const {Sequelize, DataTypes} = require('sequelize');
 const db = require('../db/js/database');
 
 const Publisher = db.define('Publisher', {
+    id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
+    },
     publisherName: {
         type: DataTypes.STRING
     },

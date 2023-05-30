@@ -10,9 +10,9 @@ const catalogRouter = require("./routes/catalog")
 const insertRouter = require("./routes/inserter")
 
 // Create a polyfill that is passed the dom global from JSDOM.
-const dom = new JSDOM();
-global.window = dom.window;
-global.document = dom.window.document;
+// const dom = new JSDOM();
+// global.window = dom.window;
+// global.document = dom.window.document;
 
 // Include inserter function
 const { userInfo } = require('os');
@@ -26,7 +26,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Initialise body-parser within express
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.urlencoded({extended: false}))
 
 // Set default directory for pug template files
 app.set("views", path.join(__dirname, "views"));
