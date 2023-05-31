@@ -14,11 +14,6 @@ const insertRouter = require('./routes/inserter');
 // global.window = dom.window;
 // global.document = dom.window.document;
 
-// Include inserter function
-const { userInfo } = require('os');
-const Game = require('./models/Game');
-console.log('All models were synchronized successfully.');
-
 var app = express();
 const port = 9999;
 

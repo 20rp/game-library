@@ -9,27 +9,6 @@
 const Game = require('../models/Game');
 const Publisher = require('../models/Publisher');
 const Genre = require('../models/Genre');
-const bp = require('body-parser');
-
-var express = require('express');
-var app = express();
-
-app.use(express.json());
-app.use(bp.urlencoded({ extended: false }));
-
-// exports.insertTest = function (req, res) {
-//     Game.findAll();
-//     game = Game.create({
-//         gameTitle: "Metal Gear Solid III Snake Eater",
-//         gameReleaseDate: "2004-01-01",
-//         gameDeveloper: "Konami Computer Entertainment",
-//         gameMetaCriticScore: "79"})
-//     .then(insertTest => {
-//         res.sendStatus(200);
-//     })
-//     .catch(err => console.error(err));
-//     console.log("Record created with ID: ", game.id);
-// }
 
 exports.insertGame = function (req, res) {
   const publishersPromise = Publisher.findAll();
@@ -54,28 +33,26 @@ exports.postGame = function (req, res) {
   let gameMetaCriticScore = req.body.gameMetaCriticScore;
   let gamePublisher = req.body.gamePublisher;
   let gameGenre = req.body.gameGenre;
-  console.log('executing post game');
 
-  res.redirect('/insert/game');
-  console.log('New Game:', [
-    gameTitle,
-    gameReleaseDate,
-    gameDeveloper,
-    gameMetaCriticScore,
-    gamePublisher,
-    gameGenre,
-  ]);
-
-  // Game.findAll()
-  // game = Game.create({
-  //     gameTitle: gameTitle,
-  //     gameReleaseDate: gameReleaseDate,
-  //     gameDeveloper: gameDeveloper,
-  //     gameMetaCriticScore: gameMetaCriticScore
-  // })
-  // .then(() => {
-  //     res.sendStatus(200)
-  // })
-  // .catch(err => console.error(err))
-  // console.log("Record created with ID: ", game.id);
+  Game.findAll();
+  game = Game.create({
+    gameTitle: gameTitle,
+    gameReleaseDate: gameReleaseDate,
+    gameDeveloper: gameDeveloper,
+    gameMetaCriticScore: gameMetaCriticScore,
+    publisherID: gamePublisher,
+    // gameGenre: gameGenre, TODO: Add relationship in db
+  })
+    .then(() => {
+      console.log('New Game:', [
+        gameTitle,
+        gameReleaseDate,
+        gameDeveloper,
+        gameMetaCriticScore,
+        gamePublisher,
+        gameGenre,
+      ]);
+      res.redirect('/insert/game');
+    })
+    .catch((err) => console.error(err));
 };
