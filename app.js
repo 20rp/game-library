@@ -23,7 +23,6 @@ var app = express();
 const port = 9999;
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 // Initialise body-parser within express
 app.use(bodyParser.urlencoded({ extended: false }));

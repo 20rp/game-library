@@ -20,17 +20,17 @@ body
                 br
             label(for="") Game Publisher
                 br
-                select
+                select(name="gamePublisher")
                     each publisher in publishers
-                        option(value=publisher.publisherName name=gamePublisher)= publisher.publisherName
+                        option(value=publisher.id)= publisher.publisherName
                 a(href="/insert/table/publisher" target="_blank", rel="noopener noreferrer")
                     input(type="button", value=">") 
                 br
             label(for="") Game Genre
                 br
-                select
+                select(name="gameGenre")
                     each genre in genres
-                        option(value=genre.genreTitle name=gameGenre)= genre.genreTitle
+                        option(value=genre.id)= genre.genreTitle
                 a(href="/insert/table/genre", target="_blank", rel="noopener noreferrer")
                     input(type="button", value=">") 
                 br 

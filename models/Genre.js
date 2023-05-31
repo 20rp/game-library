@@ -4,7 +4,7 @@ const db = require('../db/js/database');
 const Genre = db.define(
   'Genre',
   {
-    ID: {
+    id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
