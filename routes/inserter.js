@@ -25,6 +25,9 @@ router.post('/postGame', gameInsertController.postGame);
 // Render insert genre page
 router.get('/table/genre', genreInsertController.insertGenre);
 
+// http://localhost:3000/insert/table/postGenre
+router.post('/table/postGenre', genreInsertController.postGenre);
+
 // http://localhost:3000/insert/table/publisher
 // Render insert publisher page
 router.get('/table/publisher', publisherInsertController.insertPublisher);

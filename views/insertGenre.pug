@@ -1,9 +1,9 @@
 body 
     h3 Insert New Genre
     div 
-        form(action="")
+        form(method="post" action="/insert/table/postGenre")
             label(for="") Genre title 
                 br   
-                input(type="text")
+                input(type="text" name="genreTitle")
                 br
             button(type="submit") Submit
