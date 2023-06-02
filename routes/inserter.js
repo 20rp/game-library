@@ -17,19 +17,16 @@ const publisherInsertController = require('../controllers/publisherInsertControl
 // http://localhost:3000/insert/game
 // Render main game insert page
 router.get('/game', gameInsertController.insertGame);
-
-// Redirect route to postGame function
 router.post('/postGame', gameInsertController.postGame);
 
 // http://localhost:3000/insert/table/genre
 // Render insert genre page
 router.get('/table/genre', genreInsertController.insertGenre);
-
-// http://localhost:3000/insert/table/postGenre
 router.post('/table/postGenre', genreInsertController.postGenre);
 
 // http://localhost:3000/insert/table/publisher
 // Render insert publisher page
 router.get('/table/publisher', publisherInsertController.insertPublisher);
+// router.post('/table/postPublisher', publisherInsertController.postPublisher) TODO: Configure controller for post publisher
 
 module.exports = router;
