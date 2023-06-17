@@ -4,9 +4,9 @@
   "description": "A simple video game library",
   "main": "app.js",
   "scripts": {
-    "build": "npm install express nodemon browser-sync pug mysql jquery sequelize sequelize-cli mysql2 body-parser --save",
-    "dev": "nodemon app.js",
-    "ui": "browser-sync start --config bs-config.js",
+    "build": "nx exec -- npm install express nodemon browser-sync pug mysql jquery sequelize sequelize-cli mysql2 body-parser --save",
+    "dev": "nx exec -- nodemon app.js",
+    "ui": "nx exec -- browser-sync start --config bs-config.js",
     "gamelibrary": "nodemon app.js && browser-sync start --config bs-config.js"
   },
   "repository": {
@@ -34,6 +34,14 @@
     "npm": "^9.6.6",
     "pug": "^3.0.2",
     "sequelize": "^6.31.1",
-    "sequelize-cli": "^6.6.0"
+    "sequelize-cli": "^6.6.0",
+    "vite": "^4.3.9"
+  },
+  "devDependencies": {
+    "nx": "16.3.2",
+    "nx-cloud": "latest"
+  },
+  "nx": {
+    "targets": {}
   }
 }
